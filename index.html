@@ -5,57 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Gestion de stock de cave Impériale</title>
 <style>
-
-.global-loader {
-    position: fixed;
-    inset: 0;
-    background: rgba(10, 15, 25, 0.92);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 999999;
-    transition: opacity 0.3s ease;
-}
-
-.global-loader.hidden {
-    opacity: 0;
-    pointer-events: none;
-    visibility: hidden;
-}
-
-.loader-content {
-    text-align: center;
-    color: white;
-}
-
-.loader-spinner {
-    width: 55px;
-    height: 55px;
-    border: 5px solid #444;
-    border-top-color: #D4AF37;
-    border-radius: 50%;
-    animation: spin 0.8s linear infinite;
-    margin: auto;
-}
-
-.loader-content h3 {
-    margin-top: 20px;
-    font-size: 19px;
-}
-
-.loader-content p {
-    color: #ccc;
-    font-size: 13px;
-}
-
-@keyframes spin {
-    to { transform: rotate(360deg); }
- }
-
-.global-loader.hidden {
-    display: none !important;
-    }
-    
 :root{--bg:#f8f3e8;--card:#fffdf8;--ink:#2a1d0e;--mute:#75654f;--line:#e6d8bb;--acc:#8a5a14;--acc2:#f1e2c0;--ok:#2f6b3a;--okbg:#e1f0dc;--bad:#a8321f;--badbg:#f9e1da;--warn:#8a5a14;--warnbg:#faecc6;--head:#2b1a0b;--headink:#fff;--stripe:#fbf6ea}
 @media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#16120c;--card:#211a11;--ink:#f1ebdf;--mute:#b3a58f;--line:#3a3022;--acc:#e0b862;--acc2:#3a2c14;--ok:#6fd1b0;--okbg:#17362d;--bad:#ff9a92;--badbg:#42201f;--warn:#f2c36b;--warnbg:#3f3016;--head:#1c130a;--stripe:#1a150e}}
 :root[data-theme=dark]{--bg:#16120c;--card:#211a11;--ink:#f1ebdf;--mute:#b3a58f;--line:#3a3022;--acc:#e0b862;--acc2:#3a2c14;--ok:#6fd1b0;--okbg:#17362d;--bad:#ff9a92;--badbg:#42201f;--warn:#f2c36b;--warnbg:#3f3016;--head:#1c130a;--stripe:#1a150e}
@@ -127,6 +76,56 @@ dialog::backdrop{background:#0008}
 input.ed[type=checkbox]{width:auto;min-width:0}
 .idlogo{width:100%;max-width:420px;border-radius:8px;display:block;margin-bottom:8px}
 td.dc{position:sticky;right:0;background:var(--card);box-shadow:-8px 0 8px -8px #0004}th.dc{right:0;z-index:2}
+
+    .global-loader {
+    position: fixed;
+    inset: 0;
+    background: rgba(10, 15, 25, 0.92);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999999;
+    transition: opacity 0.3s ease;
+}
+
+.global-loader.hidden {
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+}
+
+.loader-content {
+    text-align: center;
+    color: white;
+}
+
+.loader-spinner {
+    width: 55px;
+    height: 55px;
+    border: 5px solid #444;
+    border-top-color: #D4AF37;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    margin: auto;
+}
+
+.loader-content h3 {
+    margin-top: 20px;
+    font-size: 19px;
+}
+
+.loader-content p {
+    color: #ccc;
+    font-size: 13px;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+ }
+
+.global-loader.hidden {
+    display: none !important;
+        }
 </style>
 </head>
 <body>
