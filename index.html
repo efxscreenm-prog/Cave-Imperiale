@@ -583,34 +583,40 @@ async function cloudInit(){if(!SBC.url||!SBC.anonKey||/COLLER/i.test(SBC.url+SBC
 
 function refresh(){calc();$('#ds').innerHTML=S.staff.map(x=>`<option value="${esc(x.c)}">${esc(x.nom+' '+x.pn)}</option>`).join('');dash();caisse();cmd();$('#dc').innerHTML=S.articles.map(a=>`<option value="${esc(a.c)}">${esc(a.n)}</option>`).join('');$('#du').innerHTML=[...new Set(S.articles.map(a=>a.u).filter(Boolean))].sort().map(n=>`<option value="${esc(n)}">`).join('');$('#dl').innerHTML=[...S.articles].map(a=>a.n).sort((a,b)=>a.localeCompare(b,'fr')).map(n=>`<option value="${esc(n)}">`).join('');G.forEach(g=>g.draw())}
 (function(){calc();refresh();const h0=location.hash.slice(1).replace(/[^a-z]/g,'');show(NAV.some(n=>n[0]===h0)?h0:'cmd')})();
-cloudInit();
+cloudInit;
+    const GlobalLoader = {
+    show() {
+        document.getElementById("global-loader")
+            ?.classList.remove("hidden");
+    },
 
-function afficherLoader(message = "Veuillez patienter...") {
-    const loader = document.getElementById("global-loader");
-
-    if (loader) {
-        loader.querySelector("h3").textContent = message;
-        loader.classList.remove("hidden");
+    hide() {
+        document.getElementById("global-loader")
+            ?.classList.add("hidden");
     }
-}
+};
 
-function masquerLoader() {
-    const loader = document.getElementById("global-loader");
+// Affichage initial
+GlobalLoader.show();
 
-    if (loader) {
-        loader.classList.add("hidden");
+// Masquage dès que le document est chargé
+window.addEventListener("load", function () {
+    GlobalLoader.hide();
+});
+
+// Navigation entre les pages
+document.addEventListener("click", function (e) {
+    const link = e.target.closest("a");
+
+    if (!link || link.target === "_blank") return;
+
+    const url = new URL(link.href);
+
+    if (url.origin === location.origin &&
+        url.href !== location.href) {
+        GlobalLoader.show();
     }
-}
-
-async function avecLoader(operation, message) {
-    afficherLoader(message);
-
-    try {
-        return await operation();
-    } finally {
-        masquerLoader();
-    }
-}
+});
   
 </script>
 </body>
